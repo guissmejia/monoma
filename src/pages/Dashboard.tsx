@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react'
 
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Button from "@mui/material/Button";
 
 import CardItem from '../components/Card/CardItem';
 import { Loader } from '../components/Loader';
 
+import { notify } from "../utils/utils";
 import { PokemonService } from '../services/pokemons.service'
 import { PokemonData, Pokemons } from '../models/PokemonData';
 
@@ -19,30 +22,72 @@ const Dashboard = () => {
 	}, [])
 
 	const getPokemons = async () => {
-		const { results } = await PokemonService.pokemons(offset)
+		try {
+			const { results } = await PokemonService.pokemons(offset)
 
-		for (let pokemon of results) {
-			getPokemonById(pokemon);
+			for (let pokemon of results) {
+				getPokemonById(pokemon);
+			}
+			setOffset(offset + 10)
+			setLoading(false)
+		} catch (error) {
+			notify('error', 'Failure to obtain pokemon')
 		}
-		setLoading(false)
 	}
 
 	const getPokemonById = async (pokemon: PokemonData) => {
-		const response = await PokemonService.pokemon(pokemon.url)
+		try {
+			const response = await PokemonService.pokemon(pokemon.url)
 
-		setPokemons((data) => [...data, response]);
+			setPokemons((data) => [...data, response]);
+		} catch (error) {
+			notify('error', 'Failure to obtain pokemon')
+		}
+	}
+
+	const goToNextPage = () => {
+		setOffset(offset + 10)
+
+		getPokemons()
 	}
 
 	return (
 		<Container component="main" fixed maxWidth={'lg'}>
 			<Grid container spacing={4}>
-				{loading ? <Loader /> : null}
-				{pokemons.map((pokemon) => (
-					<CardItem pokemon={pokemon} key={pokemon.name}/>
-				))}
+				{loading ? <Loader /> : (
+					<>
+						{pokemons.map((pokemon) => (
+							<CardItem pokemon={pokemon} key={pokemon.name} />
+						))}
+					</>
+				)}
 			</Grid>
+			<Box>
+				<Button
+					sx={styles.Button}
+					variant="contained"
+					onClick={goToNextPage}
+				>
+					{loading ? <Loader /> : 'Load More'}
+				</Button>
+			</Box>
 		</Container>
 	)
+}
+
+const styles = {
+	Button: {
+		display: 'block',
+		margin: '0 auto',
+		background: '#47667b',
+		padding: '1em 2em',
+		':hover': {
+      cursor: 'pointer',
+      bgcolor: '#4C7961',
+      transform: 'scale(0.95)',
+      transition: 'all .5s'
+    },
+	}
 }
 
 export default Dashboard
