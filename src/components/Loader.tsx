@@ -4,8 +4,8 @@ import ReactLoading from "react-loading";
 export const Loader: React.FC = () => (
   <div>
     <ReactLoading
-      type="spinningBubbles"
-      color="white"
+      type="bubbles"
+      color="#47667b"
       className="loading"
     />
   </div>
