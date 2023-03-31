@@ -38,6 +38,16 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ```shell
   npm run test
 ```
+
+## Env 📦
+
+5. You can modify the port on which the application will run using the PORT variable found inside the .env file in the root of the project.
+
+Every time you modify a variable, you must cancel the operation of the application and restart it with the npm run start command.
+
+```shell
+  PORT=3000
+```
 ## Stack 🛠️
 
 - [NPM](https://www.npmjs.com/) - Dependency handler.
