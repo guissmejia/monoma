@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import SignIn from "../pages/SignIn"
+import Header from '../components/Navbar/Header';
 import Dashboard from '../pages/Dashboard'
 
 import RequireAuth from './RequireAuth'
@@ -16,14 +17,16 @@ const App = () => {
         <Routes>
           <Route path="/" element={<SignIn />} />
           <Route path="/login" element={<SignIn />} />
-          <Route
-            path="/dashboard"
-            element={
-              <RequireAuth>
-                <Dashboard />
-              </RequireAuth>
-            }
-          />
+          <Route element={<Header />}>
+            <Route
+              path="/dashboard"
+              element={
+                <RequireAuth>
+                  <Dashboard />
+                </RequireAuth>
+              }
+            />
+          </Route>
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

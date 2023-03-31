@@ -24,3 +24,7 @@ export const login = async ({
     else reject();
   });
 };
+
+export const logout = async () => {
+  localStorage.removeItem('user')
+};
