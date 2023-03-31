@@ -52,7 +52,7 @@ const Dashboard = () => {
 	}
 
 	return (
-		<Container component="main" fixed maxWidth={'lg'}>
+		<Container component="main" fixed maxWidth={'lg'} sx={styles.Container}>
 			<Grid container spacing={4}>
 				{loading ? <Loader /> : (
 					<>
@@ -76,9 +76,13 @@ const Dashboard = () => {
 }
 
 const styles = {
+	Container: {
+    marginTop: '110px',
+		paddingBottom: '60px'
+	},
 	Button: {
 		display: 'block',
-		margin: '0 auto',
+		margin: '1em auto',
 		background: '#47667b',
 		padding: '1em 2em',
 		':hover': {

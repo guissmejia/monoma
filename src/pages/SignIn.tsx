@@ -21,7 +21,7 @@ import Snorlax from '../assets/images/snorlax.png'
 
 import { LoginForm, FormValues } from '../models/LoginData';
 
-import { login } from "../services/sign-in.service";
+import { login } from "../services/auth.service";
 import { loginReducer, initialState } from "../store";
 import { notify } from "../utils/utils";
 import { Loader } from '../components/Loader';
