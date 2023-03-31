@@ -32,16 +32,26 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
   npm run start
 ```
 
+## Login
+
+5. The credentials to enter the site, are:
+
+```shell
+    email: ashketchum@gmail.com
+    password: 12345
+```
+These, are hosted in src->utils->userCredentialsMock.json, these can be modified as desired for authentication..
+
 ## Test 📦
 
-5. To run the unit tests using Cypress, remember to hold up the application in the terminal, then run:
+6. To run the unit tests using Cypress, remember to hold up the application in the terminal, then run:
 ```shell
   npm run test
 ```
 
 ## Env 📦
 
-5. You can modify the port on which the application will run using the PORT variable found inside the .env file in the root of the project.
+7. You can modify the port on which the application will run using the PORT variable found inside the .env file in the root of the project.
 
 Every time you modify a variable, you must cancel the operation of the application and restart it with the npm run start command.
 
