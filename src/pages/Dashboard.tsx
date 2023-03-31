@@ -79,6 +79,7 @@ const Dashboard = () => {
 					sx={styles.Button}
 					variant="contained"
 					onClick={goToNextPage}
+					data-cy='load-more'
 				>
 					{loading ? <Loader /> : 'Load More'}
 				</Button>

@@ -70,6 +70,7 @@ const Menu = () => {
           aria-haspopup="true"
           onClick={handleToggle}
           sx={styles.Button}
+          data-cy='user-icon'
         >
           <FaUserAlt style={styles.Icon}/>
         </Button>
@@ -99,7 +100,7 @@ const Menu = () => {
                     onKeyDown={handleListKeyDown}
                   >
                     <MenuItem onClick={goToProfile}>Profile</MenuItem>
-                    <MenuItem onClick={logOut}>Logout</MenuItem>
+                    <MenuItem onClick={logOut} data-cy='logout'>Logout</MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>
