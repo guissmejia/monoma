@@ -3,7 +3,6 @@ import React from 'react'
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Grid from "@mui/material/Grid";
 
 import additionalInfo from '../../utils/userInfoMock.json'
 
@@ -61,7 +60,11 @@ const styles = {
   UserContent: {
     padding: '1em',
     display: 'grid',
-    gridTemplateColumns: 'repeat(2, 50%)'
+    gridTemplateColumns: 'repeat(2, 50%)',
+    '@media (max-width: 575px)': {
+      display: 'flex',
+      flexDirection: 'column',
+    }
   },
   FieldName: {
     fontSize: '18px',
