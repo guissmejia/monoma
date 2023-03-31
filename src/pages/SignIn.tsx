@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useReducer } from 'react';
+import React, { useState, useReducer } from 'react';
 import { useNavigate } from "react-router-dom";
 
 import { Formik, Form } from "formik";
@@ -19,19 +19,12 @@ import Container from '@mui/material/Container';
 
 import Snorlax from '../assets/images/snorlax.png'
 
+import { LoginForm, FormValues } from '../models/LoginData';
+
 import { login } from "../services/sign-in.service";
 import { loginReducer, initialState } from "../store";
 import { notify } from "../utils/utils";
 import { Loader } from '../components/Loader';
-
-interface LoginForm {
-  email: string;
-  password: string;
-}
-
-interface KeyboardEvent {
-  code: string;
-}
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email('Must be a valid email').required("Field required"),
@@ -46,17 +39,6 @@ const SignIn: React.FC<{}> = () => {
 
   const onShowPassword = () => setShowPassword(!showPassword)
 
-/*   useEffect(() => {
-    const listener = (event: KeyboardEvent) => {
-      if (event.code === "Enter" || event.code === "NumpadEnter") {
-      }
-    };
-    document.addEventListener("keydown", listener);
-    return () => {
-      document.removeEventListener("keydown", listener);
-    };
-  }, []) */
-
   const initialValues: LoginForm = {
     email: "",
     password: "",
@@ -64,7 +46,7 @@ const SignIn: React.FC<{}> = () => {
 
   const { isLoading, error } = state;
 
-  const handleSubmit = async (values: any) => {
+  const handleSubmit = async (values: FormValues) => {
     const { email, password } = values
 
     dispatch({ type: "login" });
@@ -82,7 +64,7 @@ const SignIn: React.FC<{}> = () => {
   return (
     <>
       {error && notify('error', 'Wrong email or password')}
-      <Container component="main" fixed maxWidth={false} disableGutters sx={styles.Container}>
+      <Container component="main" fixed maxWidth={false} disableGutters className='Login__view-root' sx={styles.Container}>
         <Box sx={styles.Box}>
           <CssBaseline />
           <Box sx={styles.FormContainer}>
@@ -159,7 +141,7 @@ const styles = {
   Container: {
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'fixed',
-    background: 'linear-gradient(130deg, #073942 0%, #4CE0D2 100%)',
+    background: 'linear-gradient(130deg, #607848 8%, #339999 100%)',
     height: '100vh',
   },
   Box: {
