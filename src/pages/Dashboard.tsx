@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import Button from "@mui/material/Button";
 import Typography from '@mui/material/Typography';
 
+import Breadcrumb from '../components/Breadcrumb';
 import CardItem from '../components/Card/CardItem';
 import { Loader } from '../components/Loader';
 
@@ -54,6 +55,7 @@ const Dashboard = () => {
 
 	return (
 		<Container component="main" fixed maxWidth={'lg'} sx={styles.Container}>
+			<Breadcrumb pathParams={null}/>
 			<Box sx={styles.BoxTitle}>
 				<Typography gutterBottom variant="h1" component="h1" sx={styles.Title}>
 					Welcome to
@@ -83,7 +85,7 @@ const Dashboard = () => {
 }
 
 const styles = {
-	BoxTitle:{
+	BoxTitle: {
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',

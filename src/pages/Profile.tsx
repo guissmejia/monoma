@@ -4,12 +4,16 @@ import Container from '@mui/material/Container';
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 
+import Breadcrumb from '../components/Breadcrumb';
 import BasicUserInfo from '../components/Profile/BasicUserInfo';
 import PersonalUserInfo from '../components/Profile/PersonalUserInfo';
 
 const Profile = () => {
   return (
     <Container component="main" fixed maxWidth={'lg'} sx={styles.Container}>
+      <Breadcrumb pathParams={[
+        { name: "Profile", route: null },
+      ]} />
       <Box>
         <Grid
           container
@@ -37,7 +41,7 @@ const styles = {
     fontFamily: 'Nunito'
   },
   Container: {
-    marginTop: '110px',
+    marginTop: '80px',
     paddingBottom: '60px'
   },
 }
