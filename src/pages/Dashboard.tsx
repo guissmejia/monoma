@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import Breadcrumb from '../components/Breadcrumb';
 import CardItem from '../components/Card/CardItem';
 import { Loader } from '../components/Loader';
+import GoUp from '../components/GoUp';
 
 import { notify } from "../utils/utils";
 import { PokemonService } from '../services/pokemons.service'
@@ -55,7 +56,7 @@ const Dashboard = () => {
 
 	return (
 		<Container component="main" fixed maxWidth={'lg'} sx={styles.Container}>
-			<Breadcrumb pathParams={null}/>
+			<Breadcrumb pathParams={null} />
 			<Box sx={styles.BoxTitle}>
 				<Typography gutterBottom variant="h1" component="h1" sx={styles.Title}>
 					Welcome to
@@ -80,6 +81,7 @@ const Dashboard = () => {
 					{loading ? <Loader /> : 'Load More'}
 				</Button>
 			</Box>
+			<GoUp />
 		</Container>
 	)
 }
@@ -89,12 +91,21 @@ const styles = {
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',
-		margin: '1em 0'
+		margin: '1em 0',
+		'@media (max-width: 900px)': {
+			flexDirection: 'column'
+		}
 	},
 	Title: {
 		m: 0,
 		fontWeight: '500',
-		fontFamily: 'Nunito'
+		fontFamily: 'Nunito',
+		'@media (max-width: 900px)': {
+			fontSize: '4rem'
+		},
+		'@media (max-width: 500px)': {
+			fontSize: '3rem'
+		}
 	},
 	Avatar: {
 
