@@ -18,6 +18,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
 import Snorlax from '../assets/images/snorlax.png'
+import Pokemons from '../assets/images/pokemons.png'
 
 import { LoginForm, FormValues } from '../models/LoginData';
 
@@ -94,6 +95,7 @@ const SignIn: React.FC<{}> = () => {
                     onChange={handleChange}
                     error={touched.email && Boolean(errors.email)}
                     helperText={touched.email && errors.email}
+                    sx={styles.TextField}
                   />
                   <TextField
                     margin="normal"
@@ -114,6 +116,7 @@ const SignIn: React.FC<{}> = () => {
                         </InputAdornment>
                       ),
                     }}
+                    sx={styles.TextField}
                   />
                   {isLoading ? <Loader /> : (
                     <Button
@@ -131,6 +134,9 @@ const SignIn: React.FC<{}> = () => {
             </Formik>
           </Box>
         </Box>
+        <Box sx={{ marginTop: '85px' }}>
+          <Avatar alt="Pokemons Icon" src={Pokemons} sx={styles.Pokemons} />
+        </Box>
       </Container>
       <ToastContainer />
     </>
@@ -143,11 +149,17 @@ const styles = {
     backgroundAttachment: 'fixed',
     background: 'linear-gradient(130deg, #607848 8%, #339999 100%)',
     height: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center'
   },
   Box: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    '@media (max-width: 575px)': {
+      transform: 'translate(0px, 25%)'
+    },
   },
   FormContainer: {
     marginTop: 8,
@@ -160,12 +172,26 @@ const styles = {
     position: 'relative',
     boxShadow: 'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;',
     justifyContent: 'center',
+    '@media (max-width: 575px)': {
+      background: 'transparent',
+      boxShadow: 'none',
+    }
   },
   Avatar: {
     width: '100%',
     height: '100%',
     opacity: '0.1',
     borderRadius: 'none',
+  },
+  Pokemons: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'flex-end',
+    borderRadius: 'inherit',
+    'img': {
+      width: '400px',
+      height: 'auto',
+    }
   },
   Button: {
     mt: 3,
@@ -184,6 +210,12 @@ const styles = {
       bgcolor: '#47667b',
       color: 'white',
     },
+  },
+  TextField: {
+    'div': {
+      background: 'white'
+    }
+
   }
 }
 

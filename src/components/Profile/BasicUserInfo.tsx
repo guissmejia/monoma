@@ -46,11 +46,17 @@ const styles = {
   UserName: {
     fontSize: '35px',
     margin: '10px 0',
+    '@media (max-width: 575px)': {
+			fontSize: '25px',
+		}
   },
   UserCategory: {
     fontSize: '25px',
     margin: '10px 0',
-    color: '#47667b'
+    color: '#47667b',
+    '@media (max-width: 575px)': {
+			fontSize: '20px',
+		}
   },
   UserEmail: {
     textDecoration: 'underline'
