@@ -5,6 +5,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import SignIn from "../pages/SignIn"
 import Header from '../components/Navbar/Header';
 import Dashboard from '../pages/Dashboard'
+import Profile from '../pages/Profile'
 
 import RequireAuth from './RequireAuth'
 
@@ -23,6 +24,14 @@ const App = () => {
               element={
                 <RequireAuth>
                   <Dashboard />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <RequireAuth>
+                  <Profile />
                 </RequireAuth>
               }
             />

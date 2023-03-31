@@ -1,0 +1,19 @@
+{
+  "basic_info": {
+    "name": "Ash Ketchum",
+    "email": "ashketchum@gmail.com",
+    "category": "Pokemon Trainer"
+  },
+  "additional_info": {
+    "age": "27 years",
+    "birthday": "February 10th",
+    "zip_code": "200456",
+    "gender": "Male",
+    "address": "Street 236 # 9b - 4 north",
+    "phone": "+57 354 890 6674",
+    "city": "Bogota",
+    "languages": "Spanish, English",
+    "other_activities":"Swim, basketball, american football",
+    "description": "Boy who likes pokémon and battles a lot. I'm 1.56 m (5 ft. 1 in.). My passion for pokémon has led me to set a goal, to reach the highest degree of Pokémon training: to be a Pokémon Master. My adventure is a journey in pursuit of this title."
+  }
+}
