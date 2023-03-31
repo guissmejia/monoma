@@ -4,6 +4,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Button from "@mui/material/Button";
+import Typography from '@mui/material/Typography';
 
 import CardItem from '../components/Card/CardItem';
 import { Loader } from '../components/Loader';
@@ -53,6 +54,12 @@ const Dashboard = () => {
 
 	return (
 		<Container component="main" fixed maxWidth={'lg'} sx={styles.Container}>
+			<Box sx={styles.BoxTitle}>
+				<Typography gutterBottom variant="h1" component="h1" sx={styles.Title}>
+					Welcome to
+				</Typography>
+				<img alt="PokeAPI Icon" src={process.env.REACT_APP_POKEAPI_LOGO_URL} style={styles.Avatar} />
+			</Box>
 			<Grid container spacing={4}>
 				{loading ? <Loader /> : (
 					<>
@@ -76,8 +83,22 @@ const Dashboard = () => {
 }
 
 const styles = {
+	BoxTitle:{
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		margin: '1em 0'
+	},
+	Title: {
+		m: 0,
+		fontWeight: '500',
+		fontFamily: 'Nunito'
+	},
+	Avatar: {
+
+	},
 	Container: {
-    marginTop: '110px',
+		marginTop: '80px',
 		paddingBottom: '60px'
 	},
 	Button: {
@@ -86,11 +107,11 @@ const styles = {
 		background: '#47667b',
 		padding: '1em 2em',
 		':hover': {
-      cursor: 'pointer',
-      bgcolor: '#4C7961',
-      transform: 'scale(0.95)',
-      transition: 'all .5s'
-    },
+			cursor: 'pointer',
+			bgcolor: '#4C7961',
+			transform: 'scale(0.95)',
+			transition: 'all .5s'
+		},
 	}
 }
 
