@@ -21,9 +21,11 @@ const Dashboard = () => {
 	const [offset, setOffset] = useState(0)
 
 	useEffect(() => {
+		// eslint-disable-next-line
 		getPokemons()
 	}, [])
 
+	// eslint-disable-next-line
 	const getPokemons = async () => {
 		try {
 			const { results } = await PokemonService.pokemons(offset)

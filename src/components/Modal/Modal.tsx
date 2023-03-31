@@ -37,7 +37,7 @@ const ModalElement = ({ open, setOpen, character, name, image }: ModalProps) => 
               <Avatar alt="Character Icon" src={image} sx={styles.Avatar} />
             </Box>
             <Box sx={styles.Content}>
-              <Box sx={styles.ContentContainer}>
+              <Box>
                 <Typography id="transition-modal-title" variant="h6" component="h2" sx={styles.Title}>
                   {name}
                 </Typography>
@@ -101,10 +101,16 @@ const styles = {
     border: 'none',
     borderRadius: '8px',
     outline: '0',
+    '@media (max-width: 575px)': {
+      width: '85%',
+    }
   },
   AvatarContainer: {
     width: '50%',
     height: '100%',
+    '@media (max-width: 575px)': {
+      width: '100%',
+		}
   },
   MiniAvatar: {
     width: '100%',
@@ -126,7 +132,10 @@ const styles = {
     'img': {
       width: '400px',
       height: '100%',
-      filter: 'drop-shadow( -20px 5px 10px #000 )'
+      filter: 'drop-shadow( -20px 5px 10px #000 )',
+      '@media (max-width: 575px)': {
+        width: '200px',
+      }
     }
   },
   Title: {
@@ -142,7 +151,11 @@ const styles = {
     }
   },
   Grid: {
-    display: 'flex'
+    display: 'flex',
+    '@media (max-width: 900px)': {
+			flexDirection: 'column',
+      alignItems: 'center',
+		}
   },
   Content: {
     width: '50%',
@@ -151,9 +164,6 @@ const styles = {
     padding: '1em 1em 1em 0',
     boxSizing: 'border-box',
   },
-  ContentContainer: {
-
-  }
 };
 
 export default ModalElement
