@@ -121,6 +121,7 @@ const SignIn: React.FC<{}> = () => {
                   {isLoading ? <Loader /> : (
                     <Button
                       type="submit"
+                      data-cy='sign-in'
                       fullWidth
                       variant="contained"
                       sx={styles.Button}
