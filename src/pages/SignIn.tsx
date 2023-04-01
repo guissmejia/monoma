@@ -191,6 +191,7 @@ const styles = {
     justifyContent: 'flex-end',
     borderRadius: 'inherit',
     position: 'absolute',
+    alignItems: 'flex-end',
     right: '0',
     bottom: '0',
     'img': {
