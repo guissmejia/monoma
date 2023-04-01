@@ -159,9 +159,6 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    '@media (max-width: 575px)': {
-      transform: 'translate(0px, 25%)'
-    },
   },
   FormContainer: {
     marginTop: 0,
