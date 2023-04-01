@@ -186,12 +186,12 @@ const styles = {
     borderRadius: 'inherit'
   },
   Pokemons: {
-    width: '100%',
     height: '100%',
     justifyContent: 'flex-end',
     borderRadius: 'inherit',
     position: 'absolute',
     alignItems: 'flex-end',
+    width: '30%',
     right: '0',
     bottom: '0',
     'img': {
