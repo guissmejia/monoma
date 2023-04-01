@@ -79,7 +79,7 @@ const SignIn: React.FC<{}> = () => {
               }}
             >
               {({ errors, values, touched, handleChange }) => (
-                <Form style={{ position: 'absolute' }}>
+                <Form style={{ position: 'absolute', maxWidth: '85%' }}>
                   <Typography component="h1" variant="h5">
                     Hello Again!
                   </Typography>
@@ -135,7 +135,7 @@ const SignIn: React.FC<{}> = () => {
             </Formik>
           </Box>
         </Box>
-        <Box sx={{ marginTop: '85px' }}>
+        <Box>
           <Avatar alt="Pokemons Icon" src={Pokemons} sx={styles.Pokemons} />
         </Box>
       </Container>
@@ -152,7 +152,8 @@ const styles = {
     height: '100vh',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    position: 'relative'
   },
   Box: {
     display: 'flex',
@@ -163,7 +164,7 @@ const styles = {
     },
   },
   FormContainer: {
-    marginTop: 8,
+    marginTop: 0,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -182,17 +183,23 @@ const styles = {
     width: '100%',
     height: '100%',
     opacity: '0.1',
-    borderRadius: 'none',
+    borderRadius: 'inherit'
   },
   Pokemons: {
     width: '100%',
     height: '100%',
     justifyContent: 'flex-end',
     borderRadius: 'inherit',
+    position: 'absolute',
+    right: '0',
+    bottom: '0',
     'img': {
       width: '400px',
       height: 'auto',
-    }
+    },
+    '@media (max-width: 575px)': {
+      display: 'none'
+    },
   },
   Button: {
     mt: 3,
