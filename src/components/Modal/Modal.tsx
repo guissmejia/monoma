@@ -8,6 +8,8 @@ import Fade from '@mui/material/Fade';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
+import { MdClose } from 'react-icons/md'
+
 import { ModalProps } from '../../models/Modal';
 import { Moves, Abilities, Types } from '../../models/PokemonData';
 
@@ -32,6 +34,7 @@ const ModalElement = ({ open, setOpen, character, name, image }: ModalProps) => 
     >
       <Fade in={open}>
         <Box sx={styles.Box}>
+          <MdClose style={styles.CloseIcon} onClick={handleClose}/>
           <Grid item key={id} sx={styles.Grid}>
             <Box sx={styles.AvatarContainer}>
               <Avatar alt="Character Icon" src={image} sx={styles.Avatar} />
@@ -105,12 +108,19 @@ const styles = {
       width: '85%',
     }
   },
+  CloseIcon: {
+    marginLeft: 'auto',
+    display: 'flex',
+    padding: '5px',
+    fontSize: '30px',
+    color: 'gray',
+  },
   AvatarContainer: {
     width: '50%',
     height: '100%',
     '@media (max-width: 575px)': {
       width: '100%',
-		}
+    }
   },
   MiniAvatar: {
     width: '100%',
@@ -121,6 +131,9 @@ const styles = {
     'img': {
       width: 'auto',
       height: 'auto',
+    },
+    '@media (max-width: 575px)': {
+      display: 'none'
     }
   },
   Avatar: {
@@ -153,9 +166,9 @@ const styles = {
   Grid: {
     display: 'flex',
     '@media (max-width: 900px)': {
-			flexDirection: 'column',
+      flexDirection: 'column',
       alignItems: 'center',
-		}
+    }
   },
   Content: {
     width: '50%',
@@ -163,6 +176,9 @@ const styles = {
     margin: '0',
     padding: '1em 1em 1em 0',
     boxSizing: 'border-box',
+    '@media (max-width: 575px)': {
+      width: '85%',
+    }
   },
 };
 
